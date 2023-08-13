@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.dubboprotobufserverdemo.facade";
+option java_outer_classname = "LlmServiceProto";
+option objc_class_prefix = "LLMSERVICE";
+
+package llmservice;
+
+message Llm {
+  string id = 1;
+  string name = 2;
+  string company = 3;
+  bool is_open_source = 4;
+}
+
+// The response message for ping.
+message PingResponse { string msg = 1; }
+
+// The request message to create an LLM.
+message CreateLlmRequest { Llm llm = 1; }
+
+// The request message to get an LLM.
+message GetLlmRequest { string id = 1; }
+
+// The response message of an LLM.
+message GetLlmResponse { Llm llm = 1; }
