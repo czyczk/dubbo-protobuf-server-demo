@@ -9,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DubboProtobufServerDemoApplication {
 
 	public static void main(String[] args) {
+		// To fix the "java.lang.reflect.InaccessibleObjectException: Unable to make field final xxx accessible" issue,
+		// follow the instructions on https://github.com/apache/dubbo/issues/9911#issuecomment-1154970447.
 		SpringApplication.run(DubboProtobufServerDemoApplication.class, args);
 	}
 

@@ -25,7 +25,7 @@ public interface DpdProtobufFacade {
     /**
      * Creates an {@link Llm}.
      * 
-     * @param llm
+     * @param createLlmRequest
      */
     void createLlm(CreateLlmRequest createLlmRequest);
 
