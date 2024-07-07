@@ -29,6 +29,12 @@ public class DpdFacadeImpl implements DpdFacade {
     }
 
     @Override
+    public Llm getLlmTimeConsuming(String id, long duration) {
+        log.info("getLlmTimeConsuming: {}, {}", id, duration);
+        return llmService.getLlmTimeConsuming(id, duration);
+    }
+
+    @Override
     public void createLlm(Llm llm) {
         log.info("createLlm: {}", llm);
         llmService.createLlm(llm);

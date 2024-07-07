@@ -1,9 +1,5 @@
 package com.example.dubboprotobufserverdemo.web.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.annotation.PostConstruct;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
