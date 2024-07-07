@@ -1,19 +1,20 @@
 package com.example.dubboprotobufserverdemo.facade;
 
+import java.util.concurrent.CompletableFuture;
+
 import com.example.dubboprotobufserverdemo.common.model.Llm;
-import org.apache.dubbo.common.stream.StreamObserver;
 
 /**
- * DPD POJO-styled facade.
+ * DPD POJO-styled Reactor non-blocking facade.
  */
-public interface DpdFacade {
+public interface DpdAsyncFacade {
 
     /**
      * Ping
      * 
      * @return "pong"
      */
-    String ping();
+    CompletableFuture<String> ping();
 
     /**
      * Get an {@link Llm}.
@@ -21,7 +22,7 @@ public interface DpdFacade {
      * @param id
      * @return
      */
-    Llm getLlm(String id);
+    CompletableFuture<Llm> getLlm(String id);
 
     /**
      * Get an {@link Llm}, but time-consuming.
@@ -30,24 +31,21 @@ public interface DpdFacade {
      * @param duration
      * @return
      */
-    Llm getLlmTimeConsuming(String id, long duration);
+    CompletableFuture<Llm> getLlmTimeConsuming(String id, long duration);
 
     /**
      * Creates an {@link Llm}.
      * 
      * @param llm
-     */
-    void createLlm(Llm llm);
-
-    /**
-     * Accepts a stream of integers and returns the sum;
      * @return
      */
-    StreamObserver<Integer> sumStream(StreamObserver<Integer> response);
+    CompletableFuture<Void> createLlm(Llm llm);
 
     /**
      * Throws an exception.
+     * 
+     * @return
      */
-    void throwException();
+    CompletableFuture<Void> throwException();
 
 }
